@@ -1,12 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
     <head>
-        <title>Page Title</title>    
+        <meta charset="utf-8">
+        <title>Rock, Paper, Scissors</title>    
     </head>
     
     <body>
         <script>
-            
+
+            // comp play
+            function computerPlay() 
+            {
+                let randNum = Math.random() * (4 - 1) + 1;
+                let choice;
+
+
+                switch(randNum) {
+                    case 1:
+                        choice = 'SCISSORS';
+                        break;
+
+                    case 2:
+                        choice = 'ROCK';
+                        break;
+
+                    case 3:
+                        choice = 'PAPER';
+                        break;
+
+                    default:
+                        choice = 'ROCK';
+                }
+
+                return choice;
+
+            }
+
+
+            // play round
+            function playRound(computerSelection, playerSelection) {
+                
+                let pSelect = playerSelection.toUpperCase();
+                let cSelect = computerSelection.toUpperCase();
+                let result;
+
+                switch(cSelection) {
+                    case 'SCISSORS':
+                        if (pSelect === 'SCISSORS')
+                            result = 'tie';
+                        
+                        else if (pSelect === 'ROCK')
+                            result = 'player wins';
+
+                        else
+                            result = 'computer wins';
+
+                        break;
+
+                    case 'ROCK':
+                        if (pSelect === 'SCISSORS')
+                            result = 'computer wins';
+
+                        else if (pSelect === 'ROCK')
+                            result = 'tie';
+                        else
+                            result = 'player wins';
+
+                        break;
+
+                    case 'PAPER':
+                        if (pSelect === 'SCISSORS')
+                            result = 'player wins';
+
+                        else if (pSelect === 'ROCK')
+                            result = 'computer wins';
+                
+                        else
+                            result = 'tie';
+
+                        break;
+                }
+
+                return result;
+            }
+
+
+            // test gameplay
+            const pSelection = 'rock';
+            const cSelection = computerPlay();
+            console.log(playRound(cSelection, pSelection));
 
         </script>
     </body>
